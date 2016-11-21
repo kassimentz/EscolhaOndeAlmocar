@@ -197,12 +197,14 @@ public class frmVotacao extends javax.swing.JFrame {
                         txtCpf.setText("");
                     } else {
                         lblJaVotou.setVisible(true);
+                        txtCpf.setBackground(Color.WHITE);
                         lblJaVotou.setText("A votacão de hoje já está encerrada. Volte amanhhã.");
                         txtCpf.setText("");
                     }
 
                 } else {
                     lblJaVotou.setVisible(true);
+                    txtCpf.setBackground(Color.WHITE);
                     lblJaVotou.setText("VOCÊ JÁ VOTOU HOJE. VOLTE AMANHÃ PARA VOTAR NOVAMENTE.");
                     txtCpf.setText("");
                 }
