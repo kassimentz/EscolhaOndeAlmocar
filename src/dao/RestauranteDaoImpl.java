@@ -19,9 +19,9 @@ import model.Restaurante;
  * @author kassi
  */
 public class RestauranteDaoImpl implements RestauranteDao {
-    
+
     private DB db = new DB();
-    
+
     private static final String TB_RESTAURANTE = "CREATE TABLE IF NOT EXISTS restaurantes (idrestaurante mediumint(9) NOT NULL PRIMARY KEY AUTO_INCREMENT, nome varchar(200), escolhidosemana boolean)";
 
     private static final String DELETE = "DELETE FROM restaurantes WHERE idrestaurante=?";
@@ -31,7 +31,7 @@ public class RestauranteDaoImpl implements RestauranteDao {
     private static final String FIND_BY_NAME = "SELECT * FROM restaurantes WHERE nome=?";
     private static final String INSERT = "INSERT INTO restaurantes(idrestaurante, nome, escolhidosemana) VALUES(?, ?, ?)";
     private static final String UPDATE = "UPDATE restaurantes SET nome=?, escolhidosemana=? WHERE idrestaurante=?";
-    
+
     public RestauranteDaoImpl() {
         db.createTable(TB_RESTAURANTE);
     }
@@ -43,7 +43,7 @@ public class RestauranteDaoImpl implements RestauranteDao {
      */
     @Override
     public int insert(Restaurante restaurante) {
-        
+
         Connection conn = null;
         PreparedStatement stmt = null;
         try {
@@ -75,7 +75,7 @@ public class RestauranteDaoImpl implements RestauranteDao {
      */
     @Override
     public int delete(int idRestaurante) {
-        
+
         Connection conn = null;
         PreparedStatement stmt = null;
 
@@ -125,7 +125,7 @@ public class RestauranteDaoImpl implements RestauranteDao {
      */
     @Override
     public Restaurante findById(int idRestaurante) {
-        
+
         Connection conn = null;
         PreparedStatement stmt = null;
 
@@ -141,7 +141,7 @@ public class RestauranteDaoImpl implements RestauranteDao {
                 restaurante.setIdRestaurante(rs.getInt("idrestaurante"));
                 restaurante.setNome(rs.getString("nome"));
                 restaurante.setEscolhidoSemana(rs.getBoolean("escolhidosemana"));
-                
+
                 return restaurante;
             } else {
                 return null;
@@ -152,10 +152,10 @@ public class RestauranteDaoImpl implements RestauranteDao {
             db.close(stmt);
         }
     }
-    
-    
+
+
     public Restaurante findByName(String nome) {
-        
+
         Connection conn = null;
         PreparedStatement stmt = null;
 
@@ -171,7 +171,7 @@ public class RestauranteDaoImpl implements RestauranteDao {
                 restaurante.setIdRestaurante(rs.getInt("idrestaurante"));
                 restaurante.setNome(rs.getString("nome"));
                 restaurante.setEscolhidoSemana(rs.getBoolean("escolhidosemana"));
-                
+
                 return restaurante;
             } else {
                 return null;
@@ -189,7 +189,7 @@ public class RestauranteDaoImpl implements RestauranteDao {
      */
     @Override
     public List<Restaurante> getRestaurantes() {
-        
+
         Connection conn = null;
         PreparedStatement stmt = null;
         List<Restaurante> list = new ArrayList<>();
@@ -200,7 +200,7 @@ public class RestauranteDaoImpl implements RestauranteDao {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                
+
                 Restaurante restaurante = new Restaurante();
                 restaurante.setIdRestaurante(rs.getInt("idrestaurante"));
                 restaurante.setNome(rs.getString("nome"));
@@ -230,7 +230,7 @@ public class RestauranteDaoImpl implements RestauranteDao {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                
+
                 Restaurante restaurante = new Restaurante();
                 restaurante.setIdRestaurante(rs.getInt("idrestaurante"));
                 restaurante.setNome(rs.getString("nome"));
@@ -256,7 +256,7 @@ public class RestauranteDaoImpl implements RestauranteDao {
         }
     }
 
-    
-    
-    
+
+
+
 }
