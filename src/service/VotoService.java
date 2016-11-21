@@ -32,7 +32,7 @@ public class VotoService {
         Date horaAtual = new Date();
         String horaAtualString = formatador.format(horaAtual);
         try {
-            horaMinima = formatador.parse("10:00");
+            horaMinima = formatador.parse("7:00");
             horaMaxima = formatador.parse("11:30");
             horaAtualFormatada = formatador.parse(horaAtualString);
         } catch (Exception e) {

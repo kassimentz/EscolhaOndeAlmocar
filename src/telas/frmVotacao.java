@@ -306,7 +306,7 @@ public class frmVotacao extends javax.swing.JFrame {
             Restaurante vencedor = votacaoDao.findWinner().getRestaurante();
             lblRestauranteEscolhido.setText(vencedor.getNome());
             vencedor.setEscolhidoSemana(true);
-            restauranteDao.update(restaurante);
+            restauranteDao.update(vencedor);
 
         } else {
             lblRestauranteEscolhido.setText("A votação de hoje ainda não está encerrada");
