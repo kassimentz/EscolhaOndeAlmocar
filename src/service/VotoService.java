@@ -15,10 +15,8 @@ import java.util.Date;
  */
 public class VotoService {
     
-    private VotoDaoImpl votoDao = null;
-    
     public VotoService(){
-        votoDao = new VotoDaoImpl();
+     
     }
 
     public boolean verificaTerminoVotacao() {
